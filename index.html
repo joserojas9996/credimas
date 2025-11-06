@@ -77,6 +77,19 @@
             opacity: 0.8;
             transition: opacity 0.3s;
             cursor: pointer;
+            /* Estilos para alinear icono y texto */
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 0 5px; 
+        }
+        
+        /* Nuevo estilo para los iconos en la navegación */
+        .nav-icon {
+            width: 20px; 
+            height: 20px;
+            object-fit: contain;
+            filter: invert(1); /* Para que se vean bien en el fondo oscuro */
         }
 
         .nav-links a:hover {
@@ -1083,9 +1096,18 @@
             <div class="nav-content">
                 <a href="#" class="apple-logo" id="close-tienda-btn">🏠</a> <ul class="nav-links">
                     <li><a href="#" class="nav-item" data-menu="mapa">Tienda (Mapa)</a></li>
-                    <li><a href="#" class="nav-item" data-menu="samsung">Samsung</a></li>
-                    <li><a href="#" class="nav-item" data-menu="iphone">iPhone</a></li>
-                    <li><a href="#" class="nav-item" data-menu="motorola">Motorola</a></li>
+                    <li><a href="#" class="nav-item" data-menu="samsung">
+                        <img src="samsung.png" alt="Logo Samsung" class="nav-icon">
+                        <span>Samsung</span>
+                    </a></li>
+                    <li><a href="#" class="nav-item" data-menu="iphone">
+                        <img src="iphone.png" alt="Logo iPhone" class="nav-icon">
+                        <span>iPhone</span>
+                    </a></li>
+                    <li><a href="#" class="nav-item" data-menu="motorola">
+                        <img src="image_7a986f.png" alt="Logo Motorola" class="nav-icon">
+                        <span>Motorola</span>
+                    </a></li>
                 </ul>
 
                 <div style="display: flex; align-items: center; gap: 10px; margin-left: auto;">
@@ -1994,7 +2016,7 @@
         navItems.forEach(item => {
             item.addEventListener('click', (e) => {
                 e.preventDefault();
-                const menuId = e.target.dataset.menu;
+                const menuId = e.target.closest('a').dataset.menu; 
                 
                 closeAllDropdowns(); 
 
